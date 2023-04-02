@@ -13,9 +13,6 @@ class Session
      * @return mixed
      */
     public static function get($name){
-        // стартуем сессии
-        session_start();
-
         // выводим данные
         return $_SESSION[$name];
     }
@@ -28,10 +25,23 @@ class Session
      */
     public static function set($name, $value)
     {
-        // стартуем сессии
-        session_start();
-
         // добавляем новые данные
         $_SESSION[$name] = $value;
+    }
+
+    /**
+     * Был ли такой ключ добавлен в сессии
+     *
+     * @param $name
+     *
+     * @return bool
+     */
+    public static function check($name)
+    {
+        if (isset($_SESSION[$name])){
+            return true;
+        }
+
+        return false;
     }
 }

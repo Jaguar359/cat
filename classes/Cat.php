@@ -10,8 +10,15 @@ class Cat
 
     public function __construct()
     {
-        $this->status = 'Кот сидит';
-        $this->mood = 50; // дефолтное состояние настроения = 50 пунктов (из 100)
+        session_start();
+
+        if (Session::check('mood')) {
+            $this->status = Session::get('status');
+            $this->mood   = Session::get('mood');
+        } else {
+            $this->status = 'Кот сидит';
+            $this->mood   = 50; // дефолтное состояние настроения = 50 пунктов (из 100)
+        }
     }
 
     /**
@@ -29,8 +36,25 @@ class Cat
         return $this->mood;
     }
 
-    public function game(){
-        $this->mood += 30;
+    /**
+     * Играем с котом
+     */
+    public function game()
+    {
+        $this->mood   += 30;
         $this->status = 'Кот играет';
+    }
+
+    /**
+     * Гладим кота
+     */
+    public function stroke()
+    {
+        $_SESSION['mood'] = $this->mood + 30;
+        $this->mood += 30;
+
+        if (isset($_SESSION['mood']) && $_SESSION['mood'] > 100){
+            $_SESSION['mood'] = 100;
+        }
     }
 }
