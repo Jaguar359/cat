@@ -57,4 +57,17 @@ class Cat
             $_SESSION['mood'] = 100;
         }
     }
+
+    /**
+     * Испугать кота
+     */
+    public function scare()
+    {
+        $_SESSION['mood'] = $this->mood - 30;
+        $this->mood -= 30;
+
+        if (isset($_SESSION['mood']) && $_SESSION['mood'] < 0){
+            $_SESSION['mood'] = 0;
+        }
+    }
 }

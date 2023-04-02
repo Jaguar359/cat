@@ -6,6 +6,9 @@ if ($_GET['r'] == 'stroke') {
     // гладим кота
     $cat->stroke();
 
+} elseif ($_GET['r'] == 'scare'){
+    // пугаем кота
+    $cat->scare();
 } elseif ($_GET['r'] == 'feed') {
     // кормим кота
 

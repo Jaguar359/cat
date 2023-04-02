@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', '0');
 session_start();
-session_destroy();
+//session_destroy();
 require_once 'classes/classes.php';
 $cat = new Cat;
 ?>
@@ -13,8 +13,8 @@ $cat = new Cat;
 <body>
 <div class="container">
     <?php
-//    echo '<pre>';
-//    var_dump($_SESSION);
+    //    echo '<pre>';
+    //    var_dump($_SESSION);
     ?>
     <div class="panel">
         <div>
@@ -28,7 +28,12 @@ $cat = new Cat;
             <br>
             <a href="action.php?r=play">
                 <button class="action-btn">Поиграть с котом</button>
-            </a><br>
+            </a>
+            <br>
+            <a href="action.php?r=scare">
+                <button class="action-btn">Испугать кота</button>
+            </a>
+            <br>
         </div>
         <div>
             <img src="https://damion.club/uploads/posts/2022-09/1663110097_26-damion-club-p-kot-risunok-raskraska-risunki-31.jpg"
