@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 50%;
+    margin: 10vh auto;
+}
+.panel{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.panel div{
+    flex: 1;
+    text-align: center;
+}
+.action-btn {
+    width: 80%;
+    height: 35px;
+    background-color: #a2d7a2;
+    border: 0;
+    margin-bottom: 15px;
+}
